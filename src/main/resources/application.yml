@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: summer
+
+  docker:
+    compose:
+      lifecycle-management: start_only
