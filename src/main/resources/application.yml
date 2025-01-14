@@ -1,3 +1,8 @@
+server:
+  port: 8080
+  servlet:
+    session:
+      timeout: 3600 #1??
 spring:
   application:
     name: summer
@@ -5,3 +10,34 @@ spring:
   docker:
     compose:
       lifecycle-management: start_only
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/summer
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: summer1234!@
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+
+  thymeleaf:
+    cache: false
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+# MyBatis ??
+mybatis:
+  mapper-locations: classpath:mappers/*.xml
+  type-aliases-package: com.pulip.summer.domain.**.dto,com.pulip.summer.domain.**.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    jdbc-type-for-null: "NULL"
+
